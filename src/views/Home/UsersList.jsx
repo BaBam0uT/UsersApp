@@ -1,5 +1,5 @@
-import React, { Component, useState, useEffect } from 'react';
-import { Text, FlatList } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { FlatList } from 'react-native';
 import UserCard from './UserCard';
 
 const UsersList = () => {

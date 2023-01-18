@@ -1,9 +1,10 @@
 import React from 'react';
 import { Text, View, StyleSheet, ActivityIndicator } from 'react-native'
+import { useNavigation } from '@react-navigation/native';
 
 const styles = StyleSheet.create({
-    post: {
-        backgroundColor: "#6BA294",
+    comment: {
+        backgroundColor: "#8A882C",
         margin: 10,
         borderRadius: 10
     },
@@ -21,14 +22,16 @@ const styles = StyleSheet.create({
     }
 });
 
-const UserPost = (props) => {
+const UserComment = (props) => {
+    navigation = useNavigation();
     return (
         <View>
             {props.loading ?
-                <ActivityIndicator color="#6BA294"/>
+                <ActivityIndicator color="#8A882C"/>
             :
-            <View style={styles.post}>
-                <Text style={styles.title}>{props.item.title.toUpperCase()}</Text>
+            <View style={styles.comment}>
+                <Text style={styles.title}>{props.item.name.toUpperCase()}</Text>
+                <Text style={styles.body}>{props.item.email}</Text>
                 <Text style={styles.body}>{props.item.body}</Text>
             </View>
             }
@@ -37,4 +40,4 @@ const UserPost = (props) => {
     );
 }
 
-export default UserPost;
+export default UserComment;

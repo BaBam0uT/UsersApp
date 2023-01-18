@@ -3,7 +3,7 @@ import React from 'react';
 import { Text, View, StyleSheet, ActivityIndicator, TouchableOpacity } from 'react-native'
 
 const styles = StyleSheet.create({
-    post: {
+    card: {
         backgroundColor: "#6BA294",
         margin: 10,
         borderRadius: 10,
@@ -29,7 +29,7 @@ const UserCard = (props) => {
             {props.loading ?
                 <ActivityIndicator color="#6BA294"/>
             :
-            <TouchableOpacity style={styles.post} onPress={() => navigation.navigate("UsersInterface", { id: props.item.id})}>
+            <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("UserInterface", { id: props.item.id})}>
                 <Text style={styles.title}>{props.item.name}</Text>
             </TouchableOpacity>
             }
