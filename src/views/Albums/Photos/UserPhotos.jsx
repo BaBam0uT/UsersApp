@@ -1,12 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { View } from 'react-native'
 import UserPhotosList from './UserPhotosList';
-import UserContext from '../../../context/UserContext';
+import { UserContext } from '../../../context/UserContext';
 
 const UserPhotos = () => {
     const [photos, setPhotos] = useState();
     const [loading, setLoading] = useState(false);
-    const id = useContext(UserContext); 
+    const {state} = React.useContext(UserContext);
 
     useEffect(() => {
       const handlerSearchPhotos = async id => {
@@ -22,7 +22,7 @@ const UserPhotos = () => {
           setLoading(false);
         }
       };
-      handlerSearchPhotos(id.id);
+      handlerSearchPhotos(state.id);
     }, []);
 
     return (

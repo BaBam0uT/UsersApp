@@ -1,12 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { View } from 'react-native'
 import UserAlbumsList from './UserAlbumsList';
-import UserContext from '../../context/UserContext';
+import { UserContext } from '../../context/UserContext';
 
 const UserAlbums = () => {
     const [albums, setAlbums] = useState();
     const [loading, setLoading] = useState(false);
-    const id = useContext(UserContext); 
+    const {state} = React.useContext(UserContext);
 
     useEffect(() => {
       const handlerSearchAlbums = async id => {
@@ -22,7 +22,7 @@ const UserAlbums = () => {
           setLoading(false);
         }
       };
-      handlerSearchAlbums(id.id);
+      handlerSearchAlbums(state.id);
     }, []);
 
     return (

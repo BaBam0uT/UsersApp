@@ -1,12 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { View } from 'react-native'
 import UserPostsList from './UserPostsList';
-import UserContext from '../../context/UserContext';
+import { UserContext } from '../../context/UserContext';
 
 const UserPosts = ({route}) => {
     const [posts, setPosts] = useState();
     const [loading, setLoading] = useState(false);
-    const id = useContext(UserContext); 
+    const {state} = React.useContext(UserContext);
 
     useEffect(() => {
       const handlerSearchPosts = async id => {
@@ -22,7 +22,7 @@ const UserPosts = ({route}) => {
           setLoading(false);
         }
       };
-      handlerSearchPosts(id.id);
+      handlerSearchPosts(state.id);
     }, []);
 
     return (

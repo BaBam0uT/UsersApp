@@ -1,12 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { View } from 'react-native'
 import UserCommentsList from './UserCommentsList';
-import UserContext from '../../../context/UserContext';
+import { UserContext } from '../../../context/UserContext';
 
 const UserComments = () => {
     const [comments, setComments] = useState();
     const [loading, setLoading] = useState(false);
-    const id = useContext(UserContext); 
+    const {state} = React.useContext(UserContext);
 
     useEffect(() => {
       const handlerSearchComments = async id => {
@@ -22,7 +22,7 @@ const UserComments = () => {
           setLoading(false);
         }
       };
-      handlerSearchComments(id.id);
+      handlerSearchComments(state.id);
     }, []);
 
     return (
